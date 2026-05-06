@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { FaWarehouse } from 'react-icons/fa'
 
 const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
@@ -10,16 +11,12 @@ export default function CTABanner() {
 
   return (
     <section className="relative overflow-hidden py-20 md:py-24">
-      {/* Background */}
       <div className="absolute inset-0 gradient-navy" />
-      {/* Pattern */}
       <div className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)', backgroundSize: '24px 24px' }}
       />
-      {/* Glow accents */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-crimson/20 rounded-full blur-[100px]" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/10 rounded-full blur-[100px]" />
-      {/* Top border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson" />
 
       <div className="relative max-w-[1280px] mx-auto px-5 md:px-8 text-center">
@@ -27,9 +24,8 @@ export default function CTABanner() {
           initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.65 }}
         >
-          {/* Icon */}
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-crimson/20 border border-crimson/30 text-3xl mb-6">
-            🏗
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-crimson/20 border border-crimson/30 mb-6">
+            <FaWarehouse size={28} color="#8B1A4A" />
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4 max-w-3xl mx-auto">

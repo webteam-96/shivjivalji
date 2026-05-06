@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { FaCheck } from 'react-icons/fa'
 
 const cases = [
   {
@@ -7,7 +8,7 @@ const cases = [
     tagColor: '#B8860B',
     title: 'Bulk Storage Solution for MegaCorp Logistics',
     industry: 'Logistics & Warehousing',
-    note: '✓ Completed in 3 weeks',
+    note: 'Completed in 3 weeks',
     size: '12,000 sq ft',
   },
   {
@@ -16,7 +17,7 @@ const cases = [
     tagColor: '#8B1A4A',
     title: 'Monsoon Protection Shed for Coastal Infrastructure Project',
     industry: 'Infrastructure',
-    note: '✓ Zero Downtime',
+    note: 'Zero Downtime',
     size: '8,500 sq ft',
   },
   {
@@ -25,7 +26,7 @@ const cases = [
     tagColor: '#0F2340',
     title: 'Monsoon Protection for Steel Manufacturing Expansion',
     industry: 'Steel & Manufacturing',
-    note: '✓ Delivered on Schedule',
+    note: 'Delivered on Schedule',
     size: '20,000 sq ft',
   },
 ]
@@ -79,7 +80,9 @@ export default function CaseStudies() {
                 <p className="text-[10px] font-bold text-gold uppercase tracking-[0.2em] mb-2">{c.industry}</p>
                 <h3 className="text-sm md:text-base font-bold text-navy leading-snug mb-4">{c.title}</h3>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-crimson">{c.note}</span>
+                  <span className="text-xs font-semibold text-crimson flex items-center gap-1">
+                    <FaCheck size={10} /> {c.note}
+                  </span>
                   <a href="#lead-form"
                     onClick={(e) => { e.preventDefault(); document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' }) }}
                     className="text-xs font-bold text-navy/50 hover:text-crimson transition-colors"

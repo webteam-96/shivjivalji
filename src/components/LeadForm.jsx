@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import toast, { Toaster } from 'react-hot-toast'
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaLock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa'
 
 const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
@@ -13,7 +14,7 @@ export default function LeadForm() {
     toast.custom((t) => (
       <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
         <div className="flex items-start gap-3">
-          <span className="text-2xl">✅</span>
+          <FaCheckCircle size={24} className="text-green-400 flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-bold">Thank you, {data.name.split(' ')[0]}!</p>
             <p className="text-white/70 text-sm mt-0.5">Our team will reach out within 24 hours with your custom quote.</p>
@@ -59,12 +60,14 @@ export default function LeadForm() {
 
                 <div className="space-y-5">
                   {[
-                    { icon: '📞', label: 'Call Us', val: '+91 98200 12345', href: 'tel:+919820012345' },
-                    { icon: '✉️', label: 'Email', val: 'info@shivjivalji.com', href: 'mailto:info@shivjivalji.com' },
-                    { icon: '📍', label: 'HQ', val: 'Mumbai, Maharashtra', href: null },
+                    { Icon: FaPhone,        label: 'Call Us', val: '+91 98200 12345',   href: 'tel:+919820012345' },
+                    { Icon: FaEnvelope,     label: 'Email',   val: 'info@shivjivalji.com', href: 'mailto:info@shivjivalji.com' },
+                    { Icon: FaMapMarkerAlt, label: 'HQ',      val: 'Mumbai, Maharashtra',  href: null },
                   ].map((c) => (
                     <div key={c.label} className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-lg flex-shrink-0">{c.icon}</div>
+                      <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <c.Icon size={16} className="text-gold" />
+                      </div>
                       <div>
                         <p className="text-[10px] font-bold text-gold uppercase tracking-widest">{c.label}</p>
                         {c.href
@@ -146,11 +149,14 @@ export default function LeadForm() {
                 <button type="submit" disabled={isSubmitting}
                   className="w-full mt-6 bg-crimson hover:bg-[#6e1239] disabled:opacity-60 text-white font-extrabold text-base py-4 rounded-xl transition-all shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:shadow-[0_8px_32px_rgba(139,26,74,0.5)] hover:-translate-y-0.5"
                 >
-                  {isSubmitting ? '⏳ Submitting…' : '🚀 GET MY FREE QUOTE →'}
+                  {isSubmitting
+                    ? <span className="flex items-center justify-center gap-2"><FaSpinner className="animate-spin" /> Submitting…</span>
+                    : 'GET MY FREE QUOTE →'
+                  }
                 </button>
 
                 <p className="text-xs text-body/50 text-center mt-3 flex items-center justify-center gap-1">
-                  <span>🔒</span> Your information is secure. No spam, ever.
+                  <FaLock size={10} /> Your information is secure. No spam, ever.
                 </p>
               </form>
             </motion.div>
@@ -176,7 +182,7 @@ function F({ label, err, children }) {
     <div className="flex flex-col gap-1.5">
       <label className="text-xs font-bold text-navy tracking-wide">{label}</label>
       {children}
-      {err && <p className="text-xs text-red-500 flex items-center gap-1"><span>⚠️</span>{err}</p>}
+      {err && <p className="text-xs text-red-500 flex items-center gap-1"><FaExclamationTriangle size={10} />{err}</p>}
     </div>
   )
 }

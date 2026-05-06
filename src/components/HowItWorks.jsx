@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion'
+import { FaClipboardList, FaTools, FaHardHat, FaHandshake } from 'react-icons/fa'
 
 const steps = [
-  { num: '01', icon: '📋', title: 'Consultation & Design',         desc: 'Site assessment, requirement scoping, and custom shed design tailored to your project.' },
-  { num: '02', icon: '🔧', title: 'Engineering & Fabrication',     desc: 'In-house steel fabrication and material preparation at our Mumbai manufacturing unit.' },
-  { num: '03', icon: '🏗', title: 'On-Site Installation',          desc: 'Expert installation crews dispatched to your site — sheds erected on time, every time.' },
-  { num: '04', icon: '🤝', title: 'Handover & Support',            desc: 'Post-handover project manager support, maintenance, and hassle-free demobilisation at contract end.' },
+  { num: '01', Icon: FaClipboardList, title: 'Consultation & Design',     desc: 'Site assessment, requirement scoping, and custom shed design tailored to your project.' },
+  { num: '02', Icon: FaTools,         title: 'Engineering & Fabrication', desc: 'In-house steel fabrication and material preparation at our Mumbai manufacturing unit.' },
+  { num: '03', Icon: FaHardHat,       title: 'On-Site Installation',      desc: 'Expert installation crews dispatched to your site — sheds erected on time, every time.' },
+  { num: '04', Icon: FaHandshake,     title: 'Handover & Support',        desc: 'Post-handover project manager support, maintenance, and hassle-free demobilisation at contract end.' },
 ]
 
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-20 md:py-28 bg-white relative overflow-hidden">
-      {/* Subtle grid background */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{ backgroundImage: 'radial-gradient(circle, #0F2340 1px, transparent 1px)', backgroundSize: '32px 32px' }}
       />
@@ -29,7 +29,6 @@ export default function HowItWorks() {
         </motion.div>
 
         <div className="relative">
-          {/* Connecting line */}
           <div className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px">
             <div className="w-full h-full bg-gradient-to-r from-crimson via-gold to-crimson opacity-30" />
           </div>
@@ -44,9 +43,8 @@ export default function HowItWorks() {
                 transition={{ duration: 0.55, delay: i * 0.15 }}
                 className="flex flex-col items-center text-center"
               >
-                {/* Icon circle */}
-                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-white border-2 border-crimson shadow-[0_0_0_8px_rgba(139,26,74,0.08)] flex items-center justify-center mb-5 group">
-                  <span className="text-4xl">{step.icon}</span>
+                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-white border-2 border-crimson shadow-[0_0_0_8px_rgba(139,26,74,0.08)] flex items-center justify-center mb-5">
+                  <step.Icon size={36} color="#8B1A4A" />
                 </div>
 
                 <div className="bg-crimson text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-3">

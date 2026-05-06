@@ -1,3 +1,5 @@
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa'
+
 const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const quickLinks = [
@@ -78,13 +80,13 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold text-gold uppercase tracking-[0.25em] mb-5">Contact Us</h4>
             <ul className="space-y-4">
               {[
-                { icon: '📞', val: '+91 98200 12345', href: 'tel:+919820012345' },
-                { icon: '✉️', val: 'info@shivjivalji.com', href: 'mailto:info@shivjivalji.com' },
-                { icon: '💬', val: 'WhatsApp Us', href: WA_LINK, external: true },
-                { icon: '📍', val: 'Mumbai, Maharashtra — PAN India Operations', href: null },
+                { Icon: FaPhone,         val: '+91 98200 12345',                        href: 'tel:+919820012345' },
+                { Icon: FaEnvelope,      val: 'info@shivjivalji.com',                   href: 'mailto:info@shivjivalji.com' },
+                { Icon: FaWhatsapp,      val: 'WhatsApp Us',                            href: WA_LINK, external: true },
+                { Icon: FaMapMarkerAlt,  val: 'Mumbai, Maharashtra — PAN India Operations', href: null },
               ].map((c, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="text-base mt-0.5">{c.icon}</span>
+                  <span className="text-gold mt-0.5"><c.Icon size={14} /></span>
                   {c.href ? (
                     <a href={c.href} target={c.external ? '_blank' : undefined} rel={c.external ? 'noopener noreferrer' : undefined}
                       className="text-white/55 hover:text-white text-sm transition-colors"
