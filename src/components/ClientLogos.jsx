@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion'
 
 const clients = [
-  { name: 'GAIL',      logo: 'https://logo.clearbit.com/gail.com',             domain: 'gail.com' },
-  { name: 'TATA',      logo: 'https://logo.clearbit.com/tata.com',             domain: 'tata.com' },
-  { name: 'Panasonic', logo: 'https://logo.clearbit.com/panasonic.com',        domain: 'panasonic.com' },
-  { name: 'DHL',       logo: 'https://logo.clearbit.com/dhl.com',              domain: 'dhl.com' },
-  { name: 'L&T',       logo: 'https://logo.clearbit.com/larsentoubro.com',     domain: 'larsentoubro.com' },
-  { name: 'Adani',     logo: 'https://logo.clearbit.com/adani.com',            domain: 'adani.com' },
-  { name: 'BHEL',      logo: 'https://logo.clearbit.com/bhel.in',              domain: 'bhel.in' },
-  { name: 'NTPC',      logo: 'https://logo.clearbit.com/ntpc.co.in',           domain: 'ntpc.co.in' },
-  { name: 'Brose',     logo: 'https://logo.clearbit.com/brose.com',            domain: 'brose.com' },
-  { name: 'Wipro',     logo: 'https://logo.clearbit.com/wipro.com',            domain: 'wipro.com' },
-  { name: 'SAIL',      logo: 'https://logo.clearbit.com/sail.co.in',           domain: 'sail.co.in' },
-  { name: 'JSW Steel', logo: 'https://logo.clearbit.com/jsw.in',               domain: 'jsw.in' },
+  { name: 'GAIL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/GAIL.svg' },
+  { name: 'TATA',      logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg' },
+  { name: 'Panasonic', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Panasonic_logo.svg' },
+  { name: 'DHL',       logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/DHL_Logo.svg' },
+  { name: 'L&T',       logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Larsen-%26-Toubro-Logo.svg' },
+  { name: 'Adani',     logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Adani_logo_2012.svg' },
+  { name: 'BHEL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/BHEL_logo.svg' },
+  { name: 'NTPC',      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/NTPC_Logo.svg' },
+  { name: 'Brose',     logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Brose.svg' },
+  { name: 'Wipro',     logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
+  { name: 'SAIL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/SAIL_Logo.svg' },
+  { name: 'JSW Steel', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/JSW_Group_logo.svg' },
 ]
 
 function LogoCard({ client }) {
