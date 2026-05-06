@@ -9,20 +9,41 @@ export default function LeadForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
 
   const onSubmit = async (data) => {
-    await new Promise(r => setTimeout(r, 900))
-    console.log('Lead:', data)
-    toast.custom((t) => (
-      <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
-        <div className="flex items-start gap-3">
-          <FaCheckCircle size={24} className="text-green-400 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="font-bold">Thank you, {data.name.split(' ')[0]}!</p>
-            <p className="text-white/70 text-sm mt-0.5">Our team will reach out within 24 hours with your custom quote.</p>
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@shivjivalji.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          _subject: `New Enquiry from ${data.name} — ${data.company}`,
+          Name: data.name,
+          Company: data.company,
+          Email: data.email,
+          Phone: data.phone,
+          Location: data.location,
+          'Requirement Type': data.type,
+          Message: data.message || '—',
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      const result = await res.json()
+      if (!res.ok || result.success === false) throw new Error()
+
+      toast.custom((t) => (
+        <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
+          <div className="flex items-start gap-3">
+            <FaCheckCircle size={24} className="text-green-400 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-bold">Thank you, {data.name.split(' ')[0]}!</p>
+              <p className="text-white/70 text-sm mt-0.5">Our team will reach out within 24 hours with your custom quote.</p>
+            </div>
           </div>
         </div>
-      </div>
-    ), { duration: 5000 })
-    reset()
+      ), { duration: 5000 })
+      reset()
+    } catch {
+      toast.error('Something went wrong. Please try WhatsApp or call us directly.')
+    }
   }
 
   return (
