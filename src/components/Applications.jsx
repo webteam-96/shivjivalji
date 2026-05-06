@@ -2,34 +2,34 @@ import { motion } from 'framer-motion'
 
 const apps = [
   {
-    label: 'Bulk Material Storage',
-    desc: 'Nation-wide raw material protection on-site',
-    img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop',
+    label: 'MS Widespan Sheds',
+    desc: 'Column-free steel sheds for heavy machinery and bulk material storage',
+    img: 'https://images.unsplash.com/photo-SGdRNRJrDCg?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Project Material Storage',
-    desc: 'Temporary project material protection during construction',
-    img: 'https://images.unsplash.com/photo-1590479773265-7464e5d48118?w=800&q=80&auto=format&fit=crop',
+    label: 'Temporary Storage Sheds',
+    desc: 'Rapid deployment bamboo & pole sheds for immediate on-site protection',
+    img: 'https://images.unsplash.com/photo-QGol05UIiiQ?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Fabrication & Painting',
-    desc: 'Enclosed industrial sheds for fabrication and painting works',
-    img: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=800&q=80&auto=format&fit=crop',
+    label: 'Raw Material Covering',
+    desc: 'Tarpaulin protection for bulk raw materials stored outdoors',
+    img: 'https://images.unsplash.com/photo-5LFkpyRZtt8?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Civil Activities',
-    desc: 'Covered zones for civil, admin and operational activities',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
+    label: 'Vertical Covering',
+    desc: 'Side-wall protective covering for buildings and industrial structures',
+    img: 'https://images.unsplash.com/photo-jC2F8GNHuR0?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Aircraft Hangars',
-    desc: 'Wide-span column-free hangars for aviation assets',
-    img: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=800&q=80&auto=format&fit=crop',
+    label: 'Building Covering',
+    desc: 'Full protective sheeting over structures during construction or repair',
+    img: 'https://images.unsplash.com/photo-jAj0pjdzvic?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Warehouse Expansion',
-    desc: 'Rapid temporary expansion of existing warehouse footprint',
-    img: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80&auto=format&fit=crop',
+    label: 'Railway Wagon Covering',
+    desc: 'Tarpaulin covers for railway wagons protecting cargo from weather',
+    img: 'https://images.unsplash.com/photo-s3JIGS4GRXs?w=800&q=80&auto=format&fit=crop',
   },
 ]
 
@@ -43,10 +43,10 @@ export default function Applications() {
           viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <span className="section-label">Where We Deploy</span>
-          <h2 className="section-title">Applications of Monsoon Sheds</h2>
+          <span className="section-label">Our Services</span>
+          <h2 className="section-title">What We Offer</h2>
           <p className="text-body text-base mt-3 max-w-xl mx-auto">
-            From iron &amp; steel to aviation — our sheds protect assets across every major Indian industry.
+            From widespan steel sheds to railway wagon covering — trusted solutions for every industrial protection need.
           </p>
         </motion.div>
 
