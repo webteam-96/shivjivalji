@@ -4,32 +4,32 @@ const apps = [
   {
     label: 'MS Widespan Sheds',
     desc: 'Column-free steel sheds for heavy machinery and bulk material storage',
-    img: 'https://images.unsplash.com/photo-SGdRNRJrDCg?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1771164211037-d89b54554a14?w=800&q=80&auto=format&fit=crop',
   },
   {
     label: 'Temporary Storage Sheds',
     desc: 'Rapid deployment bamboo & pole sheds for immediate on-site protection',
-    img: 'https://images.unsplash.com/photo-QGol05UIiiQ?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
   },
   {
     label: 'Raw Material Covering',
     desc: 'Tarpaulin protection for bulk raw materials stored outdoors',
-    img: 'https://images.unsplash.com/photo-5LFkpyRZtt8?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop',
   },
   {
     label: 'Vertical Covering',
     desc: 'Side-wall protective covering for buildings and industrial structures',
-    img: 'https://images.unsplash.com/photo-jC2F8GNHuR0?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1616320999187-3c004dad4f0b?w=800&q=80&auto=format&fit=crop',
   },
   {
     label: 'Building Covering',
     desc: 'Full protective sheeting over structures during construction or repair',
-    img: 'https://images.unsplash.com/photo-jAj0pjdzvic?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1776951913042-109f496459f9?w=800&q=80&auto=format&fit=crop',
   },
   {
     label: 'Railway Wagon Covering',
     desc: 'Tarpaulin covers for railway wagons protecting cargo from weather',
-    img: 'https://images.unsplash.com/photo-s3JIGS4GRXs?w=800&q=80&auto=format&fit=crop',
+    img: 'https://images.unsplash.com/photo-1690226610870-fef59feef9ea?w=800&q=80&auto=format&fit=crop',
   },
 ]
 
