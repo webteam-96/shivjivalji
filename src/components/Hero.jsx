@@ -22,15 +22,15 @@ export default function Hero() {
 
       {/* ── RIGHT: shed image (always visible — mobile + desktop) ── */}
       <div className="absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
-        {/* soft left blend on every screen — wide enough to avoid a visible boundary line */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-28 md:w-32 lg:w-48 bg-gradient-to-r from-white via-white/70 to-transparent z-10" />
-        {/* top fade for navbar — desktop only (no white wash on mobile) */}
-        <div className="hidden md:block absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
         <img
           src="/shed-hero.png"
           alt="Industrial Mansoon Shade"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
+          style={{
+            objectPosition: 'center center',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 18%, black 38%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 18%, black 38%)',
+          }}
         />
       </div>
 
