@@ -14,15 +14,15 @@ export default function LeadForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          _subject: `New Enquiry from ${data.firstName} ${data.lastName} — ${data.company}`,
-          'First Name': data.firstName,
-          'Last Name': data.lastName,
-          Company: data.company,
-          Designation: data.designation || '—',
+          _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,
+          _replyto: data.email,
+          Name: data.name,
           'Contact Number': data.contact,
           Email: data.email,
-          Industry: data.industry,
-          Location: data.location,
+          Company: data.company || '—',
+          Designation: data.designation || '—',
+          Industry: data.industry || '—',
+          Location: data.location || '—',
           Message: data.message || '—',
           _template: 'table',
           _captcha: 'false',
@@ -36,7 +36,7 @@ export default function LeadForm() {
           <div className="flex items-start gap-3">
             <FaCheckCircle size={24} className="text-green-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold">Thank you, {data.firstName}!</p>
+              <p className="font-bold">Thank you, {data.name?.split(' ')[0] || 'there'}!</p>
               <p className="text-white/70 text-sm mt-0.5">Our team will reach out within 24 hours with your custom quote.</p>
             </div>
           </div>
@@ -147,15 +147,12 @@ export default function LeadForm() {
                 <h3 className="text-xl font-bold text-navy mb-6">Tell us about your project</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <F label="First Name *" err={errors.firstName?.message}>
-                    <input type="text" placeholder="First Name" className={inp(errors.firstName)}
-                      {...register('firstName', { required: 'First name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
-                  </F>
-
-                  <F label="Last Name *" err={errors.lastName?.message}>
-                    <input type="text" placeholder="Last Name" className={inp(errors.lastName)}
-                      {...register('lastName', { required: 'Last name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
-                  </F>
+                  <div className="md:col-span-2">
+                    <F label="Name *" err={errors.name?.message}>
+                      <input type="text" placeholder="Name" className={inp(errors.name)}
+                        {...register('name', { required: 'Name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
+                    </F>
+                  </div>
 
                   <F label="Contact Number *" err={errors.contact?.message}>
                     <input type="tel" placeholder="Contact Number" className={inp(errors.contact)}
