@@ -21,11 +21,11 @@ export default function Hero() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-20" />
 
       {/* ── RIGHT: shed image (always visible — mobile + desktop) ── */}
-      <div className="absolute right-0 top-0 bottom-0 w-[40%] pointer-events-none">
+      <div className="absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
         {/* desktop-only soft left blend (mobile keeps a clean edge — no middle line) */}
         <div className="hidden md:block absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-white to-transparent z-10" />
-        {/* fade top so navbar sits cleanly */}
-        <div className="absolute top-0 left-0 right-0 h-20 md:h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
+        {/* desktop-only top fade for navbar — hidden on mobile (no white shadow on image) */}
+        <div className="hidden md:block absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
         <img
           src="/shed-hero.png"
           alt="Industrial Mansoon Shade"
@@ -35,7 +35,7 @@ export default function Hero() {
       </div>
 
       {/* ── LEFT: content ── */}
-      <div className="relative z-10 w-[60%] flex flex-col justify-center px-4 sm:px-6 md:px-12 xl:px-20 pt-24 pb-10 md:pt-36 md:pb-24">
+      <div className="relative z-10 w-[50%] flex flex-col justify-center px-3 sm:px-5 md:px-12 xl:px-20 pt-24 pb-10 md:pt-36 md:pb-24">
 
         {/* Eyebrow */}
         <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 sm:gap-3 mb-3 md:mb-5">
