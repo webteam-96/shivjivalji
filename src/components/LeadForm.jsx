@@ -148,54 +148,54 @@ export default function LeadForm() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <F label="First Name *" err={errors.firstName?.message}>
-                    <input type="text" placeholder="Rahul" className={inp(errors.firstName)}
+                    <input type="text" placeholder="First Name" className={inp(errors.firstName)}
                       {...register('firstName', { required: 'First name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
                   </F>
 
                   <F label="Last Name *" err={errors.lastName?.message}>
-                    <input type="text" placeholder="Sharma" className={inp(errors.lastName)}
+                    <input type="text" placeholder="Last Name" className={inp(errors.lastName)}
                       {...register('lastName', { required: 'Last name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
                   </F>
 
-                  <F label="Company Name *" err={errors.company?.message}>
-                    <input type="text" placeholder="Acme Industries Pvt. Ltd." className={inp(errors.company)}
-                      {...register('company', { required: 'Company is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
-                  </F>
-
-                  <F label="Designation" err={errors.designation?.message}>
-                    <input type="text" placeholder="Purchase Manager" className={inp(errors.designation)}
-                      {...register('designation')} />
-                  </F>
-
                   <F label="Contact Number *" err={errors.contact?.message}>
-                    <input type="tel" placeholder="9876543210" className={inp(errors.contact)}
+                    <input type="tel" placeholder="Contact Number" className={inp(errors.contact)}
                       {...register('contact', { required: 'Contact number required', pattern: { value: /^[6-9]\d{9}$/, message: 'Valid 10-digit mobile number' } })} />
                   </F>
 
-                  <F label="Email Address *" err={errors.email?.message}>
-                    <input type="email" placeholder="rahul@acme.com" className={inp(errors.email)}
+                  <F label="Email *" err={errors.email?.message}>
+                    <input type="email" placeholder="Email" className={inp(errors.email)}
                       {...register('email', { required: 'Email required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' } })} />
                   </F>
 
-                  <F label="Industry *" err={errors.industry?.message}>
+                  <F label="Company Name" err={errors.company?.message}>
+                    <input type="text" placeholder="Company Name" className={inp(errors.company)}
+                      {...register('company')} />
+                  </F>
+
+                  <F label="Designation" err={errors.designation?.message}>
+                    <input type="text" placeholder="Designation" className={inp(errors.designation)}
+                      {...register('designation')} />
+                  </F>
+
+                  <F label="Select Industry of Business" err={errors.industry?.message}>
                     <select className={inp(errors.industry)}
-                      {...register('industry', { required: 'Please select an industry' })}
+                      {...register('industry')}
                     >
-                      <option value="">Select industry…</option>
-                      {['Cement', 'Glass', 'Infrastructure', 'Oil & Gas', 'Sugar', 'Steel', 'Other'].map(o => (
+                      <option value="">Select Industry of Business</option>
+                      {['Cement Industry', 'Glass Industry', 'Infrastructure', 'Oil & Gas Industry', 'Sugar Industry', 'Steel Industry', 'Other'].map(o => (
                         <option key={o} value={o}>{o}</option>
                       ))}
                     </select>
                   </F>
 
-                  <F label="Project Location *" err={errors.location?.message}>
-                    <input type="text" placeholder="Mumbai, Maharashtra" className={inp(errors.location)}
-                      {...register('location', { required: 'Location required' })} />
+                  <F label="Location" err={errors.location?.message}>
+                    <input type="text" placeholder="Location" className={inp(errors.location)}
+                      {...register('location')} />
                   </F>
 
                   <div className="md:col-span-2">
-                    <F label="Message (Optional)" err={errors.message?.message}>
-                      <textarea rows={4} placeholder="Describe your requirements — shed size, duration, material type, site conditions…"
+                    <F label="Message" err={errors.message?.message}>
+                      <textarea rows={4} placeholder="Message"
                         className={`${inp(errors.message)} resize-none`} maxLength={500}
                         {...register('message', { maxLength: { value: 500, message: 'Max 500 characters' } })} />
                     </F>
