@@ -22,9 +22,9 @@ export default function Hero() {
 
       {/* ── RIGHT: shed image (always visible — mobile + desktop) ── */}
       <div className="absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
-        {/* desktop-only soft left blend (mobile keeps a clean edge — no middle line) */}
-        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-white to-transparent z-10" />
-        {/* desktop-only top fade for navbar — hidden on mobile (no white shadow on image) */}
+        {/* soft left blend on every screen — wide enough to avoid a visible boundary line */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-28 md:w-32 lg:w-48 bg-gradient-to-r from-white via-white/70 to-transparent z-10" />
+        {/* top fade for navbar — desktop only (no white wash on mobile) */}
         <div className="hidden md:block absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
         <img
           src="/shed-hero.png"
