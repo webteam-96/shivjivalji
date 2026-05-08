@@ -2,34 +2,19 @@ import { motion } from 'framer-motion'
 
 const apps = [
   {
-    label: 'MS Widespan Sheds',
-    desc: 'Column-free steel sheds for heavy machinery and bulk material storage',
-    img: 'https://images.unsplash.com/photo-1771164211037-d89b54554a14?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    label: 'Temporary Storage Sheds',
-    desc: 'Rapid deployment bamboo & pole sheds for immediate on-site protection',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    label: 'Raw Material Covering',
-    desc: 'Tarpaulin protection for bulk raw materials stored outdoors',
+    label: 'Raw Material Storage',
+    desc: 'Protect bulk raw materials from monsoon, UV, and wind — complete outdoor storage protection for all weather conditions',
     img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Vertical Covering',
-    desc: 'Side-wall protective covering for buildings and industrial structures',
-    img: 'https://images.unsplash.com/photo-1616320999187-3c004dad4f0b?w=800&q=80&auto=format&fit=crop',
+    label: 'Finished Goods',
+    desc: 'Weatherproof covered storage for finished goods, machinery, and high-value industrial inventory awaiting dispatch',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
   },
   {
-    label: 'Building Covering',
-    desc: 'Full protective sheeting over structures during construction or repair',
-    img: 'https://images.unsplash.com/photo-1776951913042-109f496459f9?w=800&q=80&auto=format&fit=crop',
-  },
-  {
-    label: 'Railway Wagon Covering',
-    desc: 'Tarpaulin covers for railway wagons protecting cargo from weather',
-    img: 'https://images.unsplash.com/photo-1690226610870-fef59feef9ea?w=800&q=80&auto=format&fit=crop',
+    label: 'Agriculture',
+    desc: 'Protect harvested crops, grains, and agri-produce from rainfall and sun damage during seasonal storage',
+    img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80&auto=format&fit=crop',
   },
 ]
 
@@ -46,18 +31,18 @@ export default function Applications() {
           <span className="section-label">Our Services</span>
           <h2 className="section-title">What We Offer</h2>
           <p className="text-body text-base mt-3 max-w-xl mx-auto">
-            From widespan steel sheds to railway wagon covering — trusted solutions for every industrial protection need.
+            Trusted shed solutions for raw material protection, finished goods storage, and agricultural produce across India.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {apps.map((app, i) => (
             <motion.div
               key={app.label}
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.07 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="relative group overflow-hidden rounded-2xl cursor-default shadow-md hover:shadow-2xl transition-shadow duration-400"
               style={{ aspectRatio: '4/3' }}
             >

@@ -14,13 +14,15 @@ export default function LeadForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          _subject: `New Enquiry from ${data.name} — ${data.company}`,
-          Name: data.name,
+          _subject: `New Enquiry from ${data.firstName} ${data.lastName} — ${data.company}`,
+          'First Name': data.firstName,
+          'Last Name': data.lastName,
           Company: data.company,
+          Designation: data.designation || '—',
+          'Contact Number': data.contact,
           Email: data.email,
-          Phone: data.phone,
+          Industry: data.industry,
           Location: data.location,
-          'Requirement Type': data.type,
           Message: data.message || '—',
           _template: 'table',
           _captcha: 'false',
@@ -34,7 +36,7 @@ export default function LeadForm() {
           <div className="flex items-start gap-3">
             <FaCheckCircle size={24} className="text-green-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold">Thank you, {data.name.split(' ')[0]}!</p>
+              <p className="font-bold">Thank you, {data.firstName}!</p>
               <p className="text-white/70 text-sm mt-0.5">Our team will reach out within 24 hours with your custom quote.</p>
             </div>
           </div>
@@ -55,7 +57,30 @@ export default function LeadForm() {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
         <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+
+          {/* CTA heading block */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy leading-tight mb-4 max-w-3xl mx-auto">
+              Ready to Secure Your Assets with{' '}
+              <span className="text-crimson">Reliable Industrial Sheds?</span>
+            </h2>
+            <p className="text-body text-base md:text-lg max-w-xl mx-auto mb-8">
+              Get a free consultation from our experts. Customised proposal delivered within 24 hours — anywhere in India.
+            </p>
+            <a
+              href="#lead-form-form"
+              onClick={(e) => { e.preventDefault(); document.getElementById('lead-form-form')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="inline-flex items-center gap-2 bg-crimson hover:bg-[#6e1239] text-white font-extrabold text-sm px-8 py-4 rounded-xl transition-all shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:shadow-[0_8px_32px_rgba(139,26,74,0.5)] hover:-translate-y-0.5"
+            >
+              REQUEST A FREE CONSULTATION →
+            </a>
+          </motion.div>
+
+          <div id="lead-form-form" className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
 
             {/* Left info panel */}
             <motion.div
@@ -81,9 +106,9 @@ export default function LeadForm() {
 
                 <div className="space-y-5">
                   {[
-                    { Icon: FaPhone,        label: 'Call Us', val: '+91 98200 12345',   href: 'tel:+919820012345' },
-                    { Icon: FaEnvelope,     label: 'Email',   val: 'info@shivjivalji.com', href: 'mailto:info@shivjivalji.com' },
-                    { Icon: FaMapMarkerAlt, label: 'HQ',      val: 'Mumbai, Maharashtra',  href: null },
+                    { Icon: FaPhone,        label: 'Call Us', val: '+91 98200 12345',       href: 'tel:+919820012345' },
+                    { Icon: FaEnvelope,     label: 'Email',   val: 'info@shivjivalji.com',  href: 'mailto:info@shivjivalji.com' },
+                    { Icon: FaMapMarkerAlt, label: 'HQ',      val: 'Mumbai, Maharashtra',   href: null },
                   ].map((c) => (
                     <div key={c.label} className="flex items-start gap-4">
                       <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -122,9 +147,14 @@ export default function LeadForm() {
                 <h3 className="text-xl font-bold text-navy mb-6">Tell us about your project</h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <F label="Your Name *" err={errors.name?.message}>
-                    <input type="text" placeholder="Rahul Sharma" className={inp(errors.name)}
-                      {...register('name', { required: 'Name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
+                  <F label="First Name *" err={errors.firstName?.message}>
+                    <input type="text" placeholder="Rahul" className={inp(errors.firstName)}
+                      {...register('firstName', { required: 'First name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
+                  </F>
+
+                  <F label="Last Name *" err={errors.lastName?.message}>
+                    <input type="text" placeholder="Sharma" className={inp(errors.lastName)}
+                      {...register('lastName', { required: 'Last name is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
                   </F>
 
                   <F label="Company Name *" err={errors.company?.message}>
@@ -132,30 +162,35 @@ export default function LeadForm() {
                       {...register('company', { required: 'Company is required', minLength: { value: 2, message: 'Min 2 characters' } })} />
                   </F>
 
+                  <F label="Designation" err={errors.designation?.message}>
+                    <input type="text" placeholder="Purchase Manager" className={inp(errors.designation)}
+                      {...register('designation')} />
+                  </F>
+
+                  <F label="Contact Number *" err={errors.contact?.message}>
+                    <input type="tel" placeholder="9876543210" className={inp(errors.contact)}
+                      {...register('contact', { required: 'Contact number required', pattern: { value: /^[6-9]\d{9}$/, message: 'Valid 10-digit mobile number' } })} />
+                  </F>
+
                   <F label="Email Address *" err={errors.email?.message}>
                     <input type="email" placeholder="rahul@acme.com" className={inp(errors.email)}
                       {...register('email', { required: 'Email required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' } })} />
                   </F>
 
-                  <F label="Phone Number *" err={errors.phone?.message}>
-                    <input type="tel" placeholder="9876543210" className={inp(errors.phone)}
-                      {...register('phone', { required: 'Phone required', pattern: { value: /^[6-9]\d{9}$/, message: 'Valid 10-digit mobile number' } })} />
+                  <F label="Industry *" err={errors.industry?.message}>
+                    <select className={inp(errors.industry)}
+                      {...register('industry', { required: 'Please select an industry' })}
+                    >
+                      <option value="">Select industry…</option>
+                      {['Cement', 'Glass', 'Infrastructure', 'Oil & Gas', 'Sugar', 'Steel', 'Other'].map(o => (
+                        <option key={o} value={o}>{o}</option>
+                      ))}
+                    </select>
                   </F>
 
                   <F label="Project Location *" err={errors.location?.message}>
                     <input type="text" placeholder="Mumbai, Maharashtra" className={inp(errors.location)}
                       {...register('location', { required: 'Location required' })} />
-                  </F>
-
-                  <F label="Requirement Type *" err={errors.type?.message}>
-                    <select className={inp(errors.type)}
-                      {...register('type', { required: 'Please select a type' })}
-                    >
-                      <option value="">Select shed type…</option>
-                      {['Temporary Shed', 'MS Widespan Shed', 'Hybrid Shed', 'Not Sure'].map(o => (
-                        <option key={o} value={o}>{o}</option>
-                      ))}
-                    </select>
                   </F>
 
                   <div className="md:col-span-2">

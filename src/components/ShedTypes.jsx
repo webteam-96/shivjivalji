@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const sheds = [
   {
     badge: 'Most Popular',
-    name: 'Temporary Storage Sheds',
+    name: 'Mansoon Shade Storage Sheds',
     short: 'Bamboo & Wooden Pole',
     desc: 'Rapid erection at low cost. Perfect for immediate, short-term protection needs across all industries. Erected within days.',
     features: ['Fast Deployment', 'Low CAPEX', 'All Industries'],

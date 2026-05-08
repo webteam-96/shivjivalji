@@ -34,7 +34,7 @@ export default function Footer() {
               className="h-11 w-auto object-contain mb-5 brightness-0 invert opacity-90"
             />
             <p className="text-white/50 text-sm leading-relaxed mb-4">
-              India's Trusted Temporary Shed Solution Provider Since 1910.
+              India's Trusted Mansoon Shade Solution Provider Since 1910.
             </p>
             <div className="flex items-center gap-2">
               <span className="h-px w-8 bg-gold/50" />
