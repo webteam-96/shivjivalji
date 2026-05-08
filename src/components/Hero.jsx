@@ -60,14 +60,12 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-3 md:mb-5 text-white md:text-navy drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] md:drop-shadow-none"
+          className="text-[26px] xs:text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.12] mb-3 md:mb-5 text-white md:text-navy drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)] md:drop-shadow-none"
         >
           Custom Reliable{' '}
-          <span className="text-crimson md:text-crimson">
-            Mansoon Shade &amp;<br className="hidden xs:block" /> Monsoon Sheds
-          </span>
+          <span className="text-crimson whitespace-nowrap">Monsoon Sheds</span>
           <br />Across India.
-          <span className="block text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-white/85 md:text-navy/75">
+          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-white/85 md:text-navy/75">
             Protect Your Projects. Scale Your Business.
           </span>
         </motion.h1>
