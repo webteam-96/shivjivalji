@@ -1,25 +1,25 @@
 import { motion } from 'framer-motion'
 
 const clients = [
-  { name: 'Adani',              logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Adani.jpeg' },
-  { name: 'Aditya Birla',       logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Aditya-Birla.jpeg' },
-  { name: 'AIS',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/AIS.jpeg' },
-  { name: 'Coca-Cola',          logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Coca-Cola.jpeg' },
-  { name: 'IRB',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/IRB.jpeg' },
-  { name: 'JIO',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/JIO.jpeg' },
-  { name: 'JSW',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/JSW.jpeg' },
-  { name: 'Reliance',           logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Reliance.jpeg' },
-  { name: 'Shree Renuka Sugar', logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Shree-Renuka-Sugar.jpeg' },
-  { name: 'Tata',               logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Tata.jpeg' },
+  { name: 'Adani',              logo: '/clients/adani.webp' },
+  { name: 'Aditya Birla',       logo: '/clients/aditya-birla.webp' },
+  { name: 'AIS',                logo: '/clients/ais.webp' },
+  { name: 'Coca-Cola',          logo: '/clients/coca-cola.webp' },
+  { name: 'IRB',                logo: '/clients/irb.webp' },
+  { name: 'JIO',                logo: '/clients/jio.webp' },
+  { name: 'JSW',                logo: '/clients/jsw.webp' },
+  { name: 'Reliance',           logo: '/clients/reliance.webp' },
+  { name: 'Shree Renuka Sugar', logo: '/clients/shree-renuka-sugar.webp' },
+  { name: 'Tata',               logo: '/clients/tata.webp' },
 ]
 
 function LogoCard({ client }) {
   return (
-    <div className="flex items-center justify-center bg-white border border-[#e8e8e8] rounded-xl px-6 py-4 min-w-[150px] h-[72px] shadow-sm hover:shadow-md hover:border-crimson/30 transition-all duration-200 flex-shrink-0 group">
+    <div className="flex items-center justify-center bg-white border border-[#e8e8e8] rounded-xl px-8 py-6 min-w-[200px] md:min-w-[230px] h-[120px] md:h-[130px] shadow-sm hover:shadow-md hover:border-crimson/30 transition-all duration-200 flex-shrink-0 group">
       <img
         src={client.logo}
         alt={client.name}
-        className="max-h-9 max-w-[110px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+        className="max-h-20 md:max-h-24 max-w-[170px] md:max-w-[190px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-80 group-hover:opacity-100"
         onError={(e) => {
           e.target.style.display = 'none'
           e.target.nextSibling.style.display = 'flex'
