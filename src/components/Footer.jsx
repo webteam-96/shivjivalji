@@ -4,10 +4,10 @@ const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Mons
 
 const quickLinks = [
   { label: 'Home', href: '#' },
-  { label: 'About Us', href: '#stats' },
-  { label: 'Services', href: '#shed-types' },
+  { label: 'About', href: '#stats' },
   { label: 'Applications', href: '#applications' },
-  { label: 'Case Studies', href: '#case-studies' },
+  { label: 'Products', href: '#shed-types' },
+  { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#lead-form' },
 ]
 
