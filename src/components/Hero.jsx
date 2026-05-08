@@ -15,13 +15,25 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative bg-white overflow-hidden min-h-[560px] sm:min-h-[640px] md:min-h-screen flex items-center">
+    <section className="relative bg-white overflow-hidden min-h-[600px] sm:min-h-[680px] md:min-h-screen flex items-center">
 
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-20" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-30" />
 
-      {/* ── RIGHT: shed image (always visible — mobile + desktop) ── */}
-      <div className="absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
+      {/* ── MOBILE: full-bleed background image with dark overlay ── */}
+      <div className="md:hidden absolute inset-0 pointer-events-none">
+        <img
+          src="/shed-hero.png"
+          alt="Industrial Mansoon Shade"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center center' }}
+        />
+        {/* Dark overlay for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/75 to-navy/55" />
+      </div>
+
+      {/* ── DESKTOP: right 50% image with mask blend ── */}
+      <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
         <img
           src="/shed-hero.png"
           alt="Industrial Mansoon Shade"
@@ -34,13 +46,13 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── LEFT: content ── */}
-      <div className="relative z-10 w-[50%] flex flex-col justify-center px-3 sm:px-5 md:px-12 xl:px-20 pt-24 pb-10 md:pt-36 md:pb-24">
+      {/* ── CONTENT (overlays image on mobile, sits in left half on desktop) ── */}
+      <div className="relative z-10 w-full md:w-[50%] flex flex-col justify-center px-5 sm:px-6 md:px-12 xl:px-20 pt-28 pb-12 md:pt-36 md:pb-24">
 
         {/* Eyebrow */}
         <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 sm:gap-3 mb-3 md:mb-5">
-          <span className="h-px w-5 sm:w-8 md:w-10 bg-gold flex-shrink-0" />
-          <span className="text-gold text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-tight">
+          <span className="h-px w-8 sm:w-10 bg-gold flex-shrink-0" />
+          <span className="text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] leading-tight">
             Trusted Since 1910 · Pan-India Service
           </span>
         </motion.div>
@@ -48,38 +60,41 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-[20px] xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold text-navy leading-[1.1] mb-3 md:mb-5"
+          className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] mb-3 md:mb-5 text-white md:text-navy drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] md:drop-shadow-none"
         >
           Custom Reliable{' '}
-          <span className="text-crimson">
+          <span className="text-crimson md:text-crimson">
             Mansoon Shade &amp;<br className="hidden xs:block" /> Monsoon Sheds
           </span>
           <br />Across India.
-          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold text-navy/75 mt-2 md:mt-4 leading-snug">
+          <span className="block text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-white/85 md:text-navy/75">
             Protect Your Projects. Scale Your Business.
           </span>
         </motion.h1>
 
         {/* Sub-headline */}
-        <motion.p {...fadeUp(0.32)} className="text-xs sm:text-sm md:text-lg text-body max-w-lg leading-relaxed mb-5 md:mb-10">
+        <motion.p
+          {...fadeUp(0.32)}
+          className="text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 md:mb-10 text-white/80 md:text-body"
+        >
           116+ Years of Trusted Expertise in Industrial Shed Solutions.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-3 md:gap-4">
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-3 sm:px-5 md:px-7 py-2.5 sm:py-3 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-[11px] sm:text-xs md:text-base"
+            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
           >
-            <WAIcon size={14} />
-            WhatsApp
+            <WAIcon size={16} />
+            WhatsApp Now
           </a>
           <a
             href="#lead-form"
             onClick={goToForm}
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-3 sm:px-5 md:px-7 py-2.5 sm:py-3 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:-translate-y-0.5 text-[11px] sm:text-xs md:text-base"
+            className="inline-flex items-center gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-5 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
           >
             GET QUOTE →
           </a>
