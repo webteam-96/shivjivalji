@@ -61,15 +61,27 @@ export default function StatsBar() {
   return (
     <section id="stats" className="bg-white border-y border-[#e8e8e8]">
       <div className="max-w-[1280px] mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#e8e8e8]">
-          {stats.map((s, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => {
+            const isLeftCol  = i % 2 === 0          // mobile: even = left column
+            const isTopRow   = i < 2                 // mobile: first two = top row
+            const isLast     = i === stats.length - 1
+            return (
             <motion.div
               key={s.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col items-center justify-center text-center py-8 md:py-10 px-4 md:px-6"
+              className={[
+                'flex flex-col items-center justify-center text-center py-8 md:py-10 px-4 md:px-6 border-[#e8e8e8]',
+                // mobile cross — vertical center line on left-col cells, horizontal center line on top-row cells
+                isLeftCol ? 'border-r' : '',
+                isTopRow  ? 'border-b' : '',
+                // desktop — only vertical dividers between columns, no horizontal
+                'lg:border-b-0',
+                isLast ? 'lg:border-r-0' : 'lg:border-r',
+              ].join(' ')}
             >
               {/* Icon badge */}
               <div className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-crimson/10 border border-crimson/15 flex items-center justify-center mb-3 md:mb-4">
@@ -90,7 +102,7 @@ export default function StatsBar() {
                 {s.label}
               </span>
             </motion.div>
-          ))}
+          )})}
         </div>
       </div>
     </section>
