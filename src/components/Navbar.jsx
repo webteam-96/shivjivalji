@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'About', href: '#stats' },
   { label: 'Applications', href: '#applications' },
   { label: 'Products', href: '#shed-types' },
+  { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#lead-form' },
 ]
 
