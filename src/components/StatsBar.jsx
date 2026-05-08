@@ -56,13 +56,6 @@ function Counter({ value, suffix, display }) {
   )
 }
 
-function IndiaMapSVG() {
-  return (
-    <svg viewBox="0 0 100 120" width="26" height="30" fill="#8B1A4A" aria-label="India map">
-      <path d="M50 4 L58 4 L66 7 L74 13 L80 21 L82 30 L80 37 L84 43 L85 51 L83 59 L79 67 L73 74 L67 80 L61 86 L56 92 L50 104 L44 92 L39 86 L33 80 L27 74 L21 67 L17 59 L15 51 L16 43 L20 37 L18 30 L20 21 L26 13 L34 7 L42 4 Z" />
-    </svg>
-  )
-}
 
 export default function StatsBar() {
   return (
@@ -81,7 +74,7 @@ export default function StatsBar() {
               {/* Icon badge */}
               <div className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-crimson/10 border border-crimson/15 flex items-center justify-center mb-3 md:mb-4">
                 {s.mapIcon ? (
-                  <IndiaMapSVG />
+                  <img src="https://cdn-icons-png.flaticon.com/128/2160/2160162.png" alt="India map" className="w-6 h-6 md:w-7 md:h-7 object-contain" style={{ filter: 'invert(15%) sepia(80%) saturate(700%) hue-rotate(300deg) brightness(70%)' }} />
                 ) : (
                   <s.Icon size={20} color="#8B1A4A" className="md:text-[24px]" />
                 )}
