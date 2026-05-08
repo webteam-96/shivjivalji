@@ -15,79 +15,137 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative bg-white overflow-hidden min-h-[560px] sm:min-h-[640px] md:min-h-screen flex items-center">
+    <section className="relative bg-white overflow-hidden min-h-[600px] sm:min-h-[680px] md:min-h-screen flex items-stretch">
 
       {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-20" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-30" />
 
-      {/* ── RIGHT: shed image (always visible — mobile + desktop) ── */}
-      <div className="absolute right-0 top-0 bottom-0 w-[42%] sm:w-[44%] md:w-[45%] pointer-events-none">
-        {/* fade left edge so image blends into white content */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-24 lg:w-48 bg-gradient-to-r from-white to-transparent z-10" />
-        {/* fade top so navbar sits cleanly */}
-        <div className="absolute top-0 left-0 right-0 h-20 md:h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
-        <img
-          src="/shed-hero.png"
-          alt="Industrial Mansoon Shade"
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
+      {/* Subtle navy diagonal pattern on left half */}
+      <div
+        className="absolute inset-y-0 left-0 w-[60%] opacity-[0.025] pointer-events-none"
+        style={{ backgroundImage: 'repeating-linear-gradient(45deg, #0F2340 0, #0F2340 1px, transparent 0, transparent 12px)' }}
+      />
 
-      {/* ── LEFT: content ── */}
-      <div className="relative z-10 w-[58%] sm:w-[56%] md:w-[58%] flex flex-col justify-center px-4 sm:px-6 md:px-12 xl:px-20 pt-24 pb-10 md:pt-36 md:pb-24">
+      <div className="relative z-10 w-full flex items-stretch">
 
-        {/* Eyebrow */}
-        <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 sm:gap-3 mb-3 md:mb-5">
-          <span className="h-px w-5 sm:w-8 md:w-10 bg-gold flex-shrink-0" />
-          <span className="text-gold text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-tight">
-            Trusted Since 1910 · Pan-India Service
-          </span>
-        </motion.div>
+        {/* ── LEFT: content ── */}
+        <div className="w-[60%] md:w-[58%] flex flex-col justify-center px-4 sm:px-6 md:px-12 xl:px-20 pt-24 pb-10 md:pt-32 md:pb-20">
 
-        {/* Headline */}
-        <motion.h1
-          {...fadeUp(0.2)}
-          className="text-[20px] xs:text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold text-navy leading-[1.1] mb-3 md:mb-5"
-        >
-          Custom Reliable{' '}
-          <span className="text-crimson">
-            Mansoon Shade &amp;<br className="hidden xs:block" /> Monsoon Sheds
-          </span>
-          <br />Across India.
-          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold text-navy/75 mt-2 md:mt-4 leading-snug">
+          {/* Eyebrow pill */}
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center self-start gap-1.5 sm:gap-2 bg-crimson/8 border border-crimson/20 rounded-full px-2.5 sm:px-3.5 py-1 sm:py-1.5 mb-3 md:mb-6">
+            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-crimson" />
+            <span className="text-crimson text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.18em] whitespace-nowrap">
+              Trusted Since 1910
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            {...fadeUp(0.18)}
+            className="font-extrabold text-navy leading-[1.08] mb-3 md:mb-4"
+            style={{ fontSize: 'clamp(1.25rem, 4.6vw, 4.25rem)' }}
+          >
+            Custom Reliable{' '}
+            <span className="text-crimson">
+              Mansoon Shade <span className="text-navy">&amp;</span> Monsoon Sheds
+            </span>
+            <span className="block text-navy">Across India.</span>
+          </motion.h1>
+
+          {/* Sub-line */}
+          <motion.p
+            {...fadeUp(0.28)}
+            className="text-navy/70 font-semibold leading-snug mb-4 md:mb-7"
+            style={{ fontSize: 'clamp(0.7rem, 1.6vw, 1.15rem)' }}
+          >
             Protect Your Projects. Scale Your Business.
-          </span>
-        </motion.h1>
+          </motion.p>
 
-        {/* Sub-headline */}
-        <motion.p {...fadeUp(0.32)} className="text-xs sm:text-sm md:text-lg text-body max-w-lg leading-relaxed mb-5 md:mb-10">
-          116+ Years of Trusted Expertise in Industrial Shed Solutions.
-        </motion.p>
+          {/* Stats inline */}
+          <motion.div
+            {...fadeUp(0.35)}
+            className="flex items-center gap-3 sm:gap-5 md:gap-7 mb-5 md:mb-8 pb-4 md:pb-6 border-b border-gray-200"
+          >
+            <div className="flex flex-col">
+              <span className="text-crimson font-extrabold leading-none" style={{ fontSize: 'clamp(0.95rem, 2.4vw, 1.75rem)' }}>116+</span>
+              <span className="text-navy/60 text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider mt-0.5 md:mt-1">Years</span>
+            </div>
+            <div className="w-px h-6 sm:h-7 md:h-9 bg-gray-200" />
+            <div className="flex flex-col">
+              <span className="text-crimson font-extrabold leading-none" style={{ fontSize: 'clamp(0.95rem, 2.4vw, 1.75rem)' }}>1000+</span>
+              <span className="text-navy/60 text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider mt-0.5 md:mt-1">Projects</span>
+            </div>
+            <div className="w-px h-6 sm:h-7 md:h-9 bg-gray-200" />
+            <div className="flex flex-col">
+              <span className="text-crimson font-extrabold leading-none" style={{ fontSize: 'clamp(0.95rem, 2.4vw, 1.75rem)' }}>16+</span>
+              <span className="text-navy/60 text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-wider mt-0.5 md:mt-1">Industries</span>
+            </div>
+          </motion.div>
 
-        {/* CTAs */}
-        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-3 sm:px-5 md:px-7 py-2.5 sm:py-3 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-[11px] sm:text-xs md:text-base"
+          {/* CTAs */}
+          <motion.div {...fadeUp(0.44)} className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <a
+              href="#lead-form"
+              onClick={goToForm}
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.3)] hover:-translate-y-0.5"
+              style={{ padding: 'clamp(0.55rem, 1.4vw, 1rem) clamp(0.85rem, 2vw, 1.75rem)', fontSize: 'clamp(0.65rem, 1.4vw, 0.95rem)' }}
+            >
+              GET FREE QUOTE
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 sm:gap-2 bg-white border-2 border-[#25D366] text-[#1a8a45] hover:bg-[#25D366] hover:text-white font-bold rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+              style={{ padding: 'clamp(0.5rem, 1.3vw, 0.95rem) clamp(0.75rem, 1.8vw, 1.6rem)', fontSize: 'clamp(0.65rem, 1.4vw, 0.95rem)' }}
+            >
+              <WAIcon size={14} />
+              <span className="hidden sm:inline">WhatsApp</span>
+              <span className="sm:hidden">Chat</span>
+            </a>
+          </motion.div>
+
+        </div>
+
+        {/* ── RIGHT: shed image (sharp edge, no fade) ── */}
+        <div className="relative w-[40%] md:w-[42%] flex-shrink-0">
+          {/* Diagonal accent stripe at boundary */}
+          <div className="absolute top-0 bottom-0 -left-px w-1 bg-gradient-to-b from-crimson via-gold to-crimson z-20" />
+
+          <div className="absolute inset-0">
+            <img
+              src="/shed-hero.png"
+              alt="Industrial Mansoon Shade"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Subtle dark vignette for depth */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-navy/20 via-transparent to-transparent" />
+            {/* Top fade for navbar clearance */}
+            <div className="absolute top-0 left-0 right-0 h-16 md:h-24 bg-gradient-to-b from-white/40 to-transparent" />
+          </div>
+
+          {/* Floating badge — quality marker (desktop+ only) */}
+          <motion.div
+            {...fadeUp(0.6)}
+            className="hidden md:flex absolute bottom-8 right-6 lg:bottom-12 lg:right-10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.18)] rounded-2xl px-5 py-4 items-center gap-3 border border-gray-100"
           >
-            <WAIcon size={14} />
-            WhatsApp
-          </a>
-          <a
-            href="#lead-form"
-            onClick={goToForm}
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-3 sm:px-5 md:px-7 py-2.5 sm:py-3 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:-translate-y-0.5 text-[11px] sm:text-xs md:text-base"
-          >
-            GET QUOTE →
-          </a>
-        </motion.div>
+            <div className="w-10 h-10 rounded-full bg-crimson/10 flex items-center justify-center flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#8B1A4A">
+                <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div className="text-navy font-extrabold text-lg leading-none">PAN India</div>
+              <div className="text-navy/55 text-[10px] font-bold uppercase tracking-widest mt-1">Service Coverage</div>
+            </div>
+          </motion.div>
+        </div>
 
       </div>
 
       {/* Bottom subtle divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-crimson/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-crimson/20 to-transparent z-20" />
     </section>
   )
 }
