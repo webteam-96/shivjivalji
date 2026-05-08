@@ -1,18 +1,16 @@
 import { motion } from 'framer-motion'
 
 const clients = [
-  { name: 'GAIL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/GAIL.svg' },
-  { name: 'TATA',      logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg' },
-  { name: 'Panasonic', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Panasonic_logo.svg' },
-  { name: 'DHL',       logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/DHL_Logo.svg' },
-  { name: 'L&T',       logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Larsen-%26-Toubro-Logo.svg' },
-  { name: 'Adani',     logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Adani_logo_2012.svg' },
-  { name: 'BHEL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/BHEL_logo.svg' },
-  { name: 'NTPC',      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/NTPC_Logo.svg' },
-  { name: 'Brose',     logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Brose.svg' },
-  { name: 'Wipro',     logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-  { name: 'SAIL',      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/SAIL_Logo.svg' },
-  { name: 'JSW Steel', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/JSW_Group_logo.svg' },
+  { name: 'Adani',              logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Adani.jpeg' },
+  { name: 'Aditya Birla',       logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Aditya-Birla.jpeg' },
+  { name: 'AIS',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/AIS.jpeg' },
+  { name: 'Coca-Cola',          logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Coca-Cola.jpeg' },
+  { name: 'IRB',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/IRB.jpeg' },
+  { name: 'JIO',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/JIO.jpeg' },
+  { name: 'JSW',                logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/JSW.jpeg' },
+  { name: 'Reliance',           logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Reliance.jpeg' },
+  { name: 'Shree Renuka Sugar', logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Shree-Renuka-Sugar.jpeg' },
+  { name: 'Tata',               logo: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.shivjivalji.com/wp-content/uploads/2026/04/Tata.jpeg' },
 ]
 
 function LogoCard({ client }) {
