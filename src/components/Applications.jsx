@@ -4,17 +4,17 @@ const apps = [
   {
     label: 'Raw Material Storage',
     desc: 'Protect bulk raw materials from monsoon, UV, and wind — complete outdoor storage protection for all weather conditions',
-    img: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80&auto=format&fit=crop',
+    img: '/applications/raw-material-storage.jpeg',
   },
   {
     label: 'Finished Goods',
     desc: 'Weatherproof covered storage for finished goods, machinery, and high-value industrial inventory awaiting dispatch',
-    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80&auto=format&fit=crop',
+    img: '/applications/automotive-storage.jpeg',
   },
   {
-    label: 'Agriculture',
+    label: 'Agricultural',
     desc: 'Protect harvested crops, grains, and agri-produce from rainfall and sun damage during seasonal storage',
-    img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80&auto=format&fit=crop',
+    img: '/applications/agricultural-materials.jpeg',
   },
 ]
 

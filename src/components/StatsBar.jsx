@@ -86,7 +86,7 @@ export default function StatsBar() {
               {/* Icon badge */}
               <div className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-crimson/10 border border-crimson/15 flex items-center justify-center mb-3 md:mb-4">
                 {s.mapIcon ? (
-                  <img src="https://cdn-icons-png.flaticon.com/128/2160/2160162.png" alt="India map" className="w-6 h-6 md:w-7 md:h-7 object-contain" style={{ filter: 'invert(15%) sepia(80%) saturate(700%) hue-rotate(300deg) brightness(70%)' }} />
+                  <img src="/icons/india-map.png" alt="India map" className="w-6 h-6 md:w-7 md:h-7 object-contain" style={{ filter: 'invert(15%) sepia(80%) saturate(700%) hue-rotate(300deg) brightness(70%)' }} />
                 ) : (
                   <s.Icon size={20} color="#8B1A4A" className="md:text-[24px]" />
                 )}
