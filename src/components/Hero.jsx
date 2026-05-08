@@ -20,7 +20,7 @@ export default function Hero() {
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-30" />
 
-      {/* ── MOBILE: full-bleed background image with dark overlay ── */}
+      {/* ── MOBILE: full-bleed background image with light overlay ── */}
       <div className="md:hidden absolute inset-0 pointer-events-none">
         <img
           src="/shed-hero.png"
@@ -28,8 +28,8 @@ export default function Hero() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center center' }}
         />
-        {/* Dark overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/75 to-navy/55" />
+        {/* Light overlay so dark text reads cleanly while photo still shows through */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-white/60" />
       </div>
 
       {/* ── DESKTOP: right 50% image with mask blend ── */}
@@ -60,12 +60,12 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-[26px] xs:text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.12] mb-3 md:mb-5 text-white md:text-navy drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)] md:drop-shadow-none"
+          className="text-[26px] xs:text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.12] mb-3 md:mb-5 text-navy"
         >
           Custom Reliable{' '}
           <span className="text-crimson whitespace-nowrap">Monsoon Sheds</span>
           <br />Across India.
-          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-white/85 md:text-navy/75">
+          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-navy/75">
             Protect Your Projects. Scale Your Business.
           </span>
         </motion.h1>
@@ -73,7 +73,7 @@ export default function Hero() {
         {/* Sub-headline */}
         <motion.p
           {...fadeUp(0.32)}
-          className="text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 md:mb-10 text-white/80 md:text-body"
+          className="text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 md:mb-10 text-body"
         >
           116+ Years of Trusted Expertise in Industrial Shed Solutions.
         </motion.p>
