@@ -15,16 +15,16 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+    <section className="relative bg-white overflow-hidden md:min-h-screen md:flex md:items-center">
 
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-20" />
 
-      {/* ── RIGHT: shed image (all screens) ── */}
-      <div className="absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none">
-        {/* fade edge left */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-48 bg-gradient-to-r from-white to-transparent z-10" />
-        {/* fade top so navbar doesn't clash */}
+      {/* ── RIGHT: shed image — desktop only (md and above) ── */}
+      <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[45%] pointer-events-none">
+        {/* fade left edge to blend with white content */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-white to-transparent z-10" />
+        {/* fade top so navbar sits cleanly */}
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent z-10" />
         <img
           src="/shed-hero.png"
@@ -34,12 +34,12 @@ export default function Hero() {
       </div>
 
       {/* ── LEFT: content ── */}
-      <div className="relative z-10 w-[55%] flex flex-col justify-center px-4 sm:px-6 md:px-12 xl:px-20 pt-24 pb-14 md:pt-36 md:pb-24">
+      <div className="relative z-10 w-full md:w-[58%] flex flex-col justify-center px-5 sm:px-8 md:px-12 xl:px-20 pt-28 pb-8 md:pt-36 md:pb-24">
 
         {/* Eyebrow */}
-        <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 mb-4 md:mb-5">
-          <span className="h-px w-6 sm:w-10 bg-gold flex-shrink-0" />
-          <span className="text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.25em]">
+        <motion.div {...fadeUp(0.1)} className="flex items-center gap-3 mb-5">
+          <span className="h-px w-10 bg-gold flex-shrink-0" />
+          <span className="text-gold text-xs font-bold uppercase tracking-[0.2em]">
             Trusted Since 1910 · Pan-India Service
           </span>
         </motion.div>
@@ -47,40 +47,51 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold text-navy leading-[1.05] mb-3 md:mb-5"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-navy leading-[1.05] mb-5"
         >
           Custom Reliable{' '}
-          <span className="text-crimson">Mansoon Shade &amp;<br className="hidden sm:block" /> Monsoon Sheds</span>
+          <span className="text-crimson">Mansoon Shade &amp;<br /> Monsoon Sheds</span>
           <br />Across India.
-          <span className="block text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold text-navy/75 mt-3 md:mt-4 leading-snug">
+          <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-navy/75 mt-4 leading-snug">
             Protect Your Projects. Scale Your Business.
           </span>
         </motion.h1>
 
         {/* Sub-headline */}
-        <motion.p {...fadeUp(0.32)} className="text-sm md:text-lg text-body max-w-lg leading-relaxed mb-7 md:mb-10">
+        <motion.p {...fadeUp(0.32)} className="text-base md:text-lg text-body max-w-lg leading-relaxed mb-8 md:mb-10">
           116+ Years of Trusted Expertise in Industrial Shed Solutions.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-3">
+        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-4">
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-4 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
+            className="inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-6 py-3.5 md:px-7 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.5)] hover:-translate-y-0.5 text-sm md:text-base"
           >
-            <WAIcon size={16} />
-            <span className="hidden xs:inline">WhatsApp Now</span>
-            <span className="xs:hidden">WhatsApp</span>
+            <WAIcon size={18} />
+            WhatsApp Now
           </a>
           <a
             href="#lead-form"
             onClick={goToForm}
-            className="inline-flex items-center gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-4 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
+            className="inline-flex items-center gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-6 py-3.5 md:px-7 md:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:shadow-[0_8px_32px_rgba(139,26,74,0.5)] hover:-translate-y-0.5 text-sm md:text-base"
           >
             GET QUOTE →
           </a>
+        </motion.div>
+
+        {/* ── Mobile image — shown below content on small screens only ── */}
+        <motion.div
+          {...fadeUp(0.55)}
+          className="md:hidden mt-8 rounded-2xl overflow-hidden shadow-xl"
+        >
+          <img
+            src="/shed-hero.png"
+            alt="Industrial Mansoon Shade"
+            className="w-full h-60 sm:h-72 object-cover object-center"
+          />
         </motion.div>
 
       </div>
