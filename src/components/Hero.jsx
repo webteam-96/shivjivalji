@@ -55,11 +55,12 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         </AnimatePresence>
-        {/* Cinematic gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/45 to-navy/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(15,35,64,0.3)_0%,rgba(15,35,64,0.75)_100%)]" />
-        {/* Subtle vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.5)_100%)]" />
+        {/* Light tint — keeps image vivid */}
+        <div className="absolute inset-0 bg-navy/25" />
+        {/* Focused radial darken behind centered text for legibility */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_55%_at_center,rgba(15,35,64,0.55)_0%,rgba(15,35,64,0.15)_60%,transparent_85%)]" />
+        {/* Subtle bottom fade so the dot indicators stay readable */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy/55 to-transparent" />
       </div>
 
       {/* CONTENT — centered over the slideshow */}
@@ -82,12 +83,12 @@ export default function Hero() {
         {/* Headline — bigger, more dramatic */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-[28px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-extrabold leading-[1.18] tracking-tight mb-5 md:mb-7 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]"
+          className="text-[28px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-extrabold leading-[1.18] tracking-tight mb-5 md:mb-7 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.85)] [text-shadow:_0_2px_12px_rgba(0,0,0,0.7)]"
         >
           Custom Reliable
           <br />
           <span className="relative inline-block pb-2 md:pb-3 mt-1 md:mt-2">
-            <span className="relative z-10 bg-gradient-to-r from-gold via-[#f4d77a] to-gold bg-clip-text text-transparent">
+            <span className="relative z-10 text-gold">
               Monsoon Sheds
             </span>
             <span className="absolute left-0 right-0 bottom-0 h-[3px] md:h-[5px] bg-gradient-to-r from-transparent via-gold to-transparent rounded-full" />
