@@ -1,6 +1,14 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+
+const banners = [
+  '/banner-1.png',
+  '/banner-2.png',
+  '/banner-3.png',
+  '/banner-4.png',
+]
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -9,101 +17,138 @@ const fadeUp = (delay = 0) => ({
 })
 
 export default function Hero() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    banners.forEach((src) => { const i = new Image(); i.src = src })
+  }, [])
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setIndex((p) => (p + 1) % banners.length)
+    }, 3000)
+    return () => clearInterval(t)
+  }, [])
+
   const goToForm = (e) => {
     e.preventDefault()
     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="relative bg-white overflow-hidden min-h-[600px] sm:min-h-[680px] md:min-h-screen flex items-center">
+    <section className="relative bg-navy overflow-hidden min-h-[600px] sm:min-h-[680px] md:min-h-screen flex items-center">
 
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-crimson via-gold to-crimson z-30" />
 
-      {/* ── MOBILE: full-bleed background image with dark overlay ── */}
-      <div className="md:hidden absolute inset-0 pointer-events-none">
-        <img
-          src="/shed-hero.png"
-          alt="Industrial Mansoon Shade"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        />
-        {/* Dark overlay for white text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/90 via-navy/75 to-navy/55" />
+      {/* Full-bleed background slideshow */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <AnimatePresence>
+          <motion.img
+            key={index}
+            src={banners[index]}
+            alt="Industrial Monsoon Shed"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ opacity: { duration: 1.2, ease: 'easeInOut' }, scale: { duration: 4, ease: 'easeOut' } }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+        {/* Cinematic gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/45 to-navy/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(15,35,64,0.3)_0%,rgba(15,35,64,0.75)_100%)]" />
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.5)_100%)]" />
       </div>
 
-      {/* ── DESKTOP: right 50% image with mask blend ── */}
-      <div className="hidden md:block absolute right-0 top-0 bottom-0 w-[50%] pointer-events-none">
-        <img
-          src="/shed-hero.png"
-          alt="Industrial Mansoon Shade"
-          className="w-full h-full object-cover"
-          style={{
-            objectPosition: 'center center',
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 18%, black 38%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 18%, black 38%)',
-          }}
-        />
-      </div>
+      {/* CONTENT — centered over the slideshow */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center justify-center px-5 sm:px-6 md:px-12 pt-28 pb-20 md:pt-32 md:pb-28">
 
-      {/* ── CONTENT (overlays image on mobile, sits in left half on desktop) ── */}
-      <div className="relative z-10 w-full md:w-[50%] flex flex-col justify-center px-5 sm:px-6 md:px-12 xl:px-20 pt-28 pb-12 md:pt-36 md:pb-24">
-
-        {/* Eyebrow */}
-        <motion.div {...fadeUp(0.1)} className="flex items-center gap-2 sm:gap-3 mb-3 md:mb-5">
-          <span className="h-px w-8 sm:w-10 bg-gold flex-shrink-0" />
-          <span className="text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] leading-tight">
-            Trusted Since 1910 · Pan-India Service
+        {/* Eyebrow — premium glass pill */}
+        <motion.div
+          {...fadeUp(0.1)}
+          className="inline-flex items-center gap-2.5 sm:gap-3 mb-6 md:mb-8 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-gold/30 bg-white/[0.06] backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.2)]"
+        >
+          <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-gold" />
+          </span>
+          <span className="text-gold text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.28em]">
+            Trusted Since 1910 · Pan-India
           </span>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — bigger, more dramatic */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-[26px] xs:text-3xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.12] mb-3 md:mb-5 text-white md:text-navy drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] md:drop-shadow-none"
+          className="text-[28px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-extrabold leading-[1.18] tracking-tight mb-5 md:mb-7 text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]"
         >
-          Custom Reliable{' '}
-          <span className="text-gold md:text-crimson whitespace-nowrap drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] md:drop-shadow-none">
-            Monsoon Sheds
+          Custom Reliable
+          <br />
+          <span className="relative inline-block pb-2 md:pb-3 mt-1 md:mt-2">
+            <span className="relative z-10 bg-gradient-to-r from-gold via-[#f4d77a] to-gold bg-clip-text text-transparent">
+              Monsoon Sheds
+            </span>
+            <span className="absolute left-0 right-0 bottom-0 h-[3px] md:h-[5px] bg-gradient-to-r from-transparent via-gold to-transparent rounded-full" />
           </span>
-          <br />Across India.
-          <span className="block text-sm xs:text-base sm:text-lg md:text-2xl lg:text-4xl font-bold mt-2 md:mt-4 leading-snug text-white/90 md:text-navy/75">
-            Protect Your Projects. Scale Your Business.
-          </span>
+          <br />
+          <span className="inline-block mt-2 md:mt-3 text-white/95">Across India</span>
         </motion.h1>
 
         {/* Sub-headline */}
         <motion.p
           {...fadeUp(0.32)}
-          className="text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 md:mb-10 text-white/85 md:text-body"
+          className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-3 md:mb-4 text-white font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
         >
-          116+ Years of Trusted Expertise in Industrial Shed Solutions.
+          Protect Your Projects. Scale Your Business.
+        </motion.p>
+        <motion.p
+          {...fadeUp(0.38)}
+          className="text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-8 md:mb-10 text-white/80"
+        >
+          116+ Years of trusted expertise in industrial shed solutions for India's largest enterprises.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div {...fadeUp(0.44)} className="flex flex-wrap gap-3 md:gap-4">
+        <motion.div {...fadeUp(0.44)} className="flex flex-wrap justify-center gap-3 md:gap-4">
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-5 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
+            className="group inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-200 shadow-[0_12px_32px_rgba(37,211,102,0.4)] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(37,211,102,0.5)] text-sm sm:text-base"
           >
-            <WAIcon size={16} />
+            <WAIcon size={18} />
             WhatsApp Now
           </a>
           <a
             href="#lead-form"
             onClick={goToForm}
-            className="inline-flex items-center gap-2 bg-crimson hover:bg-[#6e1239] text-white font-bold px-5 sm:px-7 py-3 sm:py-4 rounded-lg transition-all duration-200 shadow-[0_8px_24px_rgba(139,26,74,0.35)] hover:-translate-y-0.5 text-xs sm:text-sm md:text-base"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-crimson to-[#a8225c] hover:from-[#6e1239] hover:to-crimson text-white font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-200 shadow-[0_12px_32px_rgba(139,26,74,0.45)] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(139,26,74,0.55)] text-sm sm:text-base"
           >
-            GET QUOTE →
+            GET QUOTE
+            <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
           </a>
         </motion.div>
 
       </div>
 
-      {/* Bottom subtle divider — desktop only */}
-      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-crimson/20 to-transparent" />
+      {/* Slide indicator dots */}
+      <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {banners.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Show banner ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              i === index ? 'w-8 bg-gold' : 'w-3 bg-white/40 hover:bg-white/70'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Bottom subtle divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-crimson/30 to-transparent" />
     </section>
   )
 }

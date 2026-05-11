@@ -2,19 +2,24 @@ import { motion } from 'framer-motion'
 
 const apps = [
   {
-    label: 'Raw Material Storage',
-    desc: 'Protect bulk raw materials from monsoon, UV, and wind — complete outdoor storage protection for all weather conditions',
-    img: '/applications/raw-material-storage.jpeg',
+    label: 'Bulk Material Storage',
+    desc: 'Heavy-duty covered storage for cement, coal, ore, and other bulk industrial materials — protected from monsoon and wind',
+    img: '/applications/bulk-material-storage.png',
   },
   {
-    label: 'Finished Goods',
+    label: 'Project Material Storage',
+    desc: 'Secure on-site sheds for project materials, equipment, and construction inventory during active execution phases',
+    img: '/applications/project-material-storage.png',
+  },
+  {
+    label: 'Finished Storage',
     desc: 'Weatherproof covered storage for finished goods, machinery, and high-value industrial inventory awaiting dispatch',
-    img: '/applications/automotive-storage.jpeg',
+    img: '/applications/finished-storage.png',
   },
   {
-    label: 'Agricultural',
+    label: 'Agricultural Storage',
     desc: 'Protect harvested crops, grains, and agri-produce from rainfall and sun damage during seasonal storage',
-    img: '/applications/agricultural-materials.jpeg',
+    img: '/applications/agricultural-storage.png',
   },
 ]
 
@@ -35,7 +40,7 @@ export default function Applications() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {apps.map((app, i) => (
             <motion.div
               key={app.label}

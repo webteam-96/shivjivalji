@@ -19,7 +19,7 @@ function LogoCard({ client }) {
       <img
         src={client.logo}
         alt={client.name}
-        className="max-h-20 md:max-h-24 max-w-[170px] md:max-w-[190px] object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-80 group-hover:opacity-100"
+        className="max-h-20 md:max-h-24 max-w-[170px] md:max-w-[190px] object-contain transition-transform duration-300 group-hover:scale-105"
         onError={(e) => {
           e.target.style.display = 'none'
           e.target.nextSibling.style.display = 'flex'
