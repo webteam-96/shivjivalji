@@ -5,10 +5,10 @@ import { asset } from '../lib/asset'
 const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const banners = [
-  asset('/banner-1.png'),
-  asset('/banner-2.png'),
-  asset('/banner-3.png'),
-  asset('/banner-4.png'),
+  asset('/banner-1.webp'),
+  asset('/banner-2.webp'),
+  asset('/banner-3.webp'),
+  asset('/banner-4.webp'),
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -49,6 +49,8 @@ export default function Hero() {
             key={index}
             src={banners[index]}
             alt="Industrial Monsoon Shed"
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            decoding="async"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, transition: { duration: 1.2, ease: 'easeInOut' } }}

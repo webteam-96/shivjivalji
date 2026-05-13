@@ -8,7 +8,7 @@ const sheds = [
     short: 'Bamboo & Wooden Pole',
     desc: 'Rapid erection at low cost. Perfect for immediate, short-term protection needs across all industries. Erected within days.',
     features: ['Fast Deployment', 'Low CAPEX', 'All Industries'],
-    img: asset('/products/traditional-shed.png'),
+    img: asset('/products/traditional-shed.webp'),
     badgeColor: 'bg-amber-600',
   },
   {
@@ -17,7 +17,7 @@ const sheds = [
     short: 'Steel Frame — Column Free',
     desc: 'Maximum unobstructed interior space. Designed for heavy machinery, bulk raw materials, and mobile equipment.',
     features: ['Column-Free Interior', 'Heavy Machinery', 'Steel Frame'],
-    img: asset('/products/ms-shed.png'),
+    img: asset('/products/ms-shed.webp'),
     badgeColor: 'bg-slate-700',
     highlight: true,
   },
@@ -27,7 +27,7 @@ const sheds = [
     short: 'Curved Roof Architecture',
     desc: 'Self-supporting curved roof structure with superior load distribution. Ideal for large-span storage and high-clearance needs.',
     features: ['Wide Span', 'Self-Supporting', 'Premium Build'],
-    img: asset('/products/dome-shed.png'),
+    img: asset('/products/dome-shed.webp'),
     badgeColor: 'bg-emerald-700',
   },
 ]
