@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FaAward, FaHardHat, FaIndustry } from 'react-icons/fa'
+import { asset } from '../lib/asset'
 
 const stats = [
   {
@@ -92,8 +93,8 @@ export default function StatsBar() {
                     className="block w-5 h-5 md:w-6 md:h-6"
                     style={{
                       backgroundColor: '#8B1A4A',
-                      WebkitMaskImage: 'url(/icons/india-map.png)',
-                      maskImage: 'url(/icons/india-map.png)',
+                      WebkitMaskImage: `url(${asset('/icons/india-map.png')})`,
+                      maskImage: `url(${asset('/icons/india-map.png')})`,
                       WebkitMaskRepeat: 'no-repeat',
                       maskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',

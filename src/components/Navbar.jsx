@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { asset } from '../lib/asset'
 
 const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
@@ -40,7 +41,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" onClick={(e) => go(e, '#')} className="flex items-center gap-2.5 flex-shrink-0">
           <img
-            src="/logo.png"
+            src={asset('/logo.png')}
             alt="Shah Shivji Valji & Company"
             className="h-9 md:h-11 w-auto object-contain transition-all duration-300"
           />

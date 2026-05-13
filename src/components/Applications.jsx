@@ -1,25 +1,26 @@
 import { motion } from 'framer-motion'
+import { asset } from '../lib/asset'
 
 const apps = [
   {
     label: 'Bulk Material Storage',
     desc: 'Heavy-duty covered storage for cement, coal, ore, and other bulk industrial materials — protected from monsoon and wind',
-    img: '/applications/bulk-material-storage.png',
+    img: asset('/applications/bulk-material-storage.png'),
   },
   {
     label: 'Project Material Storage',
     desc: 'Secure on-site sheds for project materials, equipment, and construction inventory during active execution phases',
-    img: '/applications/project-material-storage.png',
+    img: asset('/applications/project-material-storage.png'),
   },
   {
     label: 'Finished Storage',
     desc: 'Weatherproof covered storage for finished goods, machinery, and high-value industrial inventory awaiting dispatch',
-    img: '/applications/finished-storage.png',
+    img: asset('/applications/finished-storage.png'),
   },
   {
     label: 'Agricultural Storage',
     desc: 'Protect harvested crops, grains, and agri-produce from rainfall and sun damage during seasonal storage',
-    img: '/applications/agricultural-storage.png',
+    img: asset('/applications/agricultural-storage.png'),
   },
 ]
 

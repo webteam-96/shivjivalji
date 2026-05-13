@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { asset } from '../lib/asset'
 
 const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const banners = [
-  '/banner-1.png',
-  '/banner-2.png',
-  '/banner-3.png',
-  '/banner-4.png',
+  asset('/banner-1.png'),
+  asset('/banner-2.png'),
+  asset('/banner-3.png'),
+  asset('/banner-4.png'),
 ]
 
 const fadeUp = (delay = 0) => ({

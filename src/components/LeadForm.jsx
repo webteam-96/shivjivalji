@@ -11,7 +11,8 @@ export default function LeadForm() {
   const onSubmit = async (data) => {
     try {
       const recipients = [
-        'kalmalusare@gmail.com',
+        'bhavik.nagda@shivjivalji.com',
+        'aakash.kalushte@shivjivalji.com',
       ]
       const payload = {
         _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,

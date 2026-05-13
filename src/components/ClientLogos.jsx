@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion'
+import { asset } from '../lib/asset'
 
 const clients = [
-  { name: 'Adani',              logo: '/clients/adani.webp' },
-  { name: 'Aditya Birla',       logo: '/clients/aditya-birla.webp' },
-  { name: 'AIS',                logo: '/clients/ais.webp' },
-  { name: 'Coca-Cola',          logo: '/clients/coca-cola.webp' },
-  { name: 'IRB',                logo: '/clients/irb.webp' },
-  { name: 'JIO',                logo: '/clients/jio.webp' },
-  { name: 'JSW',                logo: '/clients/jsw.webp' },
-  { name: 'Reliance',           logo: '/clients/reliance.webp' },
-  { name: 'Shree Renuka Sugar', logo: '/clients/shree-renuka-sugar.webp' },
-  { name: 'Tata',               logo: '/clients/tata.webp' },
+  { name: 'Adani',              logo: asset('/clients/adani.webp') },
+  { name: 'Aditya Birla',       logo: asset('/clients/aditya-birla.webp') },
+  { name: 'AIS',                logo: asset('/clients/ais.webp') },
+  { name: 'Coca-Cola',          logo: asset('/clients/coca-cola.webp') },
+  { name: 'IRB',                logo: asset('/clients/irb.webp') },
+  { name: 'JIO',                logo: asset('/clients/jio.webp') },
+  { name: 'JSW',                logo: asset('/clients/jsw.webp') },
+  { name: 'Reliance',           logo: asset('/clients/reliance.webp') },
+  { name: 'Shree Renuka Sugar', logo: asset('/clients/shree-renuka-sugar.webp') },
+  { name: 'Tata',               logo: asset('/clients/tata.webp') },
 ]
 
 function LogoCard({ client }) {

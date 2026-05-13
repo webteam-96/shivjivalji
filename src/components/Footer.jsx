@@ -1,4 +1,5 @@
 import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa'
+import { asset } from '../lib/asset'
 
 const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
@@ -30,7 +31,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <img src="/logo.png" alt="Shah Shivji Valji & Company"
+            <img src={asset('/logo.png')} alt="Shah Shivji Valji & Company"
               className="h-11 w-auto object-contain mb-5 brightness-0 invert opacity-90"
             />
             <p className="text-white/50 text-sm leading-relaxed mb-4">
