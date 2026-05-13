@@ -1,35 +1,44 @@
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import toast, { Toaster } from 'react-hot-toast'
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaLock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaLock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa'
 
-const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 export default function LeadForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch('https://formsubmit.co/ajax/info@shivjivalji.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,
-          _replyto: data.email,
-          Name: data.name,
-          'Contact Number': data.contact,
-          Email: data.email,
-          Company: data.company || '—',
-          Designation: data.designation || '—',
-          Industry: data.industry || '—',
-          Location: data.location || '—',
-          Message: data.message || '—',
-          _template: 'table',
-          _captcha: 'false',
-        }),
-      })
-      const result = await res.json()
-      if (!res.ok || result.success === false) throw new Error()
+      const recipients = [
+        'bhavik.nagda@shivjivalji.com',
+        'aakash.kalushte@shivjivalji.com',
+      ]
+      const payload = {
+        _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,
+        _replyto: data.email,
+        Name: data.name,
+        'Contact Number': data.contact,
+        Email: data.email,
+        Company: data.company || '—',
+        Designation: data.designation || '—',
+        Industry: data.industry || '—',
+        Location: data.location || '—',
+        Message: data.message || '—',
+        _template: 'table',
+        _captcha: 'false',
+      }
+
+      const results = await Promise.all(
+        recipients.map((to) =>
+          fetch(`https://formsubmit.co/ajax/${to}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload),
+          }).then((r) => r.json().then((j) => ({ ok: r.ok, j })))
+        )
+      )
+      if (results.some((r) => !r.ok || r.j.success === false)) throw new Error()
 
       toast.custom((t) => (
         <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
@@ -106,8 +115,7 @@ export default function LeadForm() {
 
                 <div className="space-y-5">
                   {[
-                    { Icon: FaPhone,        label: 'Call Us', val: '+91 98200 12345',       href: 'tel:+919820012345' },
-                    { Icon: FaEnvelope,     label: 'Email',   val: 'info@shivjivalji.com',  href: 'mailto:info@shivjivalji.com' },
+                    { Icon: FaEnvelope,     label: 'Email',   val: 'bhavik.nagda@shivjivalji.com',  href: 'mailto:bhavik.nagda@shivjivalji.com' },
                     { Icon: FaMapMarkerAlt, label: 'HQ',      val: 'Mumbai, Maharashtra',   href: null },
                   ].map((c) => (
                     <div key={c.label} className="flex items-start gap-4">

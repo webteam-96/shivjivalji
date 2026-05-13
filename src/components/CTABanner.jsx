@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaWarehouse } from 'react-icons/fa'
 
-const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 export default function CTABanner() {
   const go = (e) => {

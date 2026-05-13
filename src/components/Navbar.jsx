@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const navLinks = [
   { label: 'About', href: '#stats' },

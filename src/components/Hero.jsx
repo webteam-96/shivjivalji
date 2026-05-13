@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const banners = [
   '/banner-1.png',
@@ -43,14 +43,14 @@ export default function Hero() {
 
       {/* Full-bleed background slideshow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           <motion.img
             key={index}
             src={banners[index]}
             alt="Industrial Monsoon Shed"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
+            exit={{ opacity: 0, transition: { duration: 1.2, ease: 'easeInOut' } }}
             transition={{ opacity: { duration: 1.2, ease: 'easeInOut' }, scale: { duration: 4, ease: 'easeOut' } }}
             className="absolute inset-0 w-full h-full object-cover"
           />

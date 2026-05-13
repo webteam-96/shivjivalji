@@ -1,6 +1,6 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa'
 
-const WA_LINK = 'https://wa.me/919820012345?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const quickLinks = [
   { label: 'Home', href: '#' },
@@ -34,7 +34,7 @@ export default function Footer() {
               className="h-11 w-auto object-contain mb-5 brightness-0 invert opacity-90"
             />
             <p className="text-white/50 text-sm leading-relaxed mb-4">
-              India's Trusted Mansoon Shade Solution Provider Since 1910.
+              India's Trusted Monsoon Shed Solution Provider Since 1910.
             </p>
             <div className="flex items-center gap-2">
               <span className="h-px w-8 bg-gold/50" />
@@ -80,9 +80,8 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold text-gold uppercase tracking-[0.25em] mb-5">Contact Us</h4>
             <ul className="space-y-4">
               {[
-                { Icon: FaPhone,         val: '+91 98200 12345',                        href: 'tel:+919820012345' },
-                { Icon: FaEnvelope,      val: 'info@shivjivalji.com',                   href: 'mailto:info@shivjivalji.com' },
-                { Icon: FaWhatsapp,      val: 'WhatsApp Us',                            href: WA_LINK, external: true },
+                { Icon: FaEnvelope,      val: 'bhavik.nagda@shivjivalji.com',           href: 'mailto:bhavik.nagda@shivjivalji.com' },
+                { Icon: FaWhatsapp,      val: 'WhatsApp: +91 82387 20244',              href: WA_LINK, external: true },
                 { Icon: FaMapMarkerAlt,  val: 'Mumbai, Maharashtra — PAN India Operations', href: null },
               ].map((c, i) => (
                 <li key={i} className="flex items-start gap-3">
