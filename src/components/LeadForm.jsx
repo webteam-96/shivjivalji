@@ -12,7 +12,7 @@ export default function LeadForm() {
     try {
       const recipients = [
         'bhavik.nagda@shivjivalji.com',
-        'aakash.kalushte@shivjivalji.com',
+        'akash.kalushte@shivjivalji.com',
       ]
       const payload = {
         _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,
@@ -115,7 +115,7 @@ export default function LeadForm() {
 
                 <div className="space-y-5">
                   {[
-                    { Icon: FaEnvelope,     label: 'Email',   val: 'bhavik.nagda@shivjivalji.com',  href: 'mailto:bhavik.nagda@shivjivalji.com' },
+                    { Icon: FaEnvelope,     label: 'Email',   val: 'info@shivjivalji.com',  href: 'mailto:info@shivjivalji.com' },
                     { Icon: FaMapMarkerAlt, label: 'HQ',      val: 'Mumbai, Maharashtra',   href: null },
                   ].map((c) => (
                     <div key={c.label} className="flex items-start gap-4">

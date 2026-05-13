@@ -80,8 +80,8 @@ export default function Footer() {
             <h4 className="text-[10px] font-bold text-gold uppercase tracking-[0.25em] mb-5">Contact Us</h4>
             <ul className="space-y-4">
               {[
-                { Icon: FaEnvelope,      val: 'bhavik.nagda@shivjivalji.com',           href: 'mailto:bhavik.nagda@shivjivalji.com' },
-                { Icon: FaWhatsapp,      val: 'WhatsApp: +91 82387 20244',              href: WA_LINK, external: true },
+                { Icon: FaEnvelope,      val: 'info@shivjivalji.com',                   href: 'mailto:info@shivjivalji.com' },
+                { Icon: FaWhatsapp,      val: '+91 8238720244',                         href: WA_LINK, external: true },
                 { Icon: FaMapMarkerAlt,  val: 'Mumbai, Maharashtra — PAN India Operations', href: null },
               ].map((c, i) => (
                 <li key={i} className="flex items-start gap-3">
