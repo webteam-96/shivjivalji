@@ -120,9 +120,9 @@ export default function Footer() {
             © {new Date().getFullYear()} Shah Shivji Valji &amp; Company. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+            <a href="#/privacy-policy" className="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
             <span className="text-white/15">|</span>
-            <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+            <a href="#/terms-of-service" className="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
