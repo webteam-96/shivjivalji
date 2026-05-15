@@ -5,44 +5,32 @@ import { FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaLock, FaSpinner, FaExclama
 
 const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
+// PHP mailer on same origin. Edit recipients in public/sendmail.php
+const MAIL_ENDPOINT = `${import.meta.env.BASE_URL}sendmail.php`
+
 export default function LeadForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
 
   const onSubmit = async (data) => {
     try {
-      const recipients = [
-        'bhavik.nagda@shivjivalji.com',
-        'aakash.kalushte@shivjivalji.com',
-      ]
       const payload = {
-        _subject: `New Enquiry from ${data.name}${data.company ? ` — ${data.company}` : ''}`,
-        _replyto: data.email,
-        Name: data.name,
-        'Contact Number': data.contact,
-        Email: data.email,
-        Company: data.company || '—',
-        Designation: data.designation || '—',
-        Industry: data.industry || '—',
-        Location: data.location || '—',
-        Message: data.message || '—',
-        _template: 'table',
-        _captcha: 'false',
+        name: data.name,
+        contact: data.contact,
+        email: data.email,
+        company: data.company,
+        designation: data.designation,
+        industry: data.industry,
+        location: data.location,
+        message: data.message,
       }
 
-      const results = await Promise.allSettled(
-        recipients.map((to) =>
-          fetch(`https://formsubmit.co/ajax/${to}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-            body: JSON.stringify(payload),
-          }).then(async (r) => {
-            const j = await r.json().catch(() => ({}))
-            if (!r.ok || j.success === 'false' || j.success === false) throw new Error()
-            return j
-          })
-        )
-      )
-      if (!results.some((r) => r.status === 'fulfilled')) throw new Error()
+      const res = await fetch(MAIL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const j = await res.json().catch(() => ({}))
+      if (!res.ok || j.success !== true) throw new Error()
 
       toast.custom((t) => (
         <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
