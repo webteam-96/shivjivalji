@@ -29,16 +29,20 @@ export default function LeadForm() {
         _captcha: 'false',
       }
 
-      const results = await Promise.all(
+      const results = await Promise.allSettled(
         recipients.map((to) =>
           fetch(`https://formsubmit.co/ajax/${to}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
             body: JSON.stringify(payload),
-          }).then((r) => r.json().then((j) => ({ ok: r.ok, j })))
+          }).then(async (r) => {
+            const j = await r.json().catch(() => ({}))
+            if (!r.ok || j.success === 'false' || j.success === false) throw new Error()
+            return j
+          })
         )
       )
-      if (results.some((r) => !r.ok || r.j.success === false)) throw new Error()
+      if (!results.some((r) => r.status === 'fulfilled')) throw new Error()
 
       toast.custom((t) => (
         <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-navy text-white px-6 py-4 rounded-xl shadow-2xl border border-gold/30 max-w-sm`}>
