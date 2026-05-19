@@ -1,7 +1,7 @@
 import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa'
 import { asset } from '../lib/asset'
 
-const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/919930924189?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const quickLinks = [
   { label: 'Home', href: '#' },
@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { Icon: FaEnvelope,      val: 'info@shivjivalji.com',                   href: 'mailto:info@shivjivalji.com' },
-                { Icon: FaWhatsapp,      val: '+91 8238720244',                         href: WA_LINK, external: true },
+                { Icon: FaWhatsapp,      val: '+91 9930924189',                         href: WA_LINK, external: true },
                 { Icon: FaMapMarkerAlt,  val: 'Mumbai, Maharashtra — PAN India Operations', href: null },
               ].map((c, i) => (
                 <li key={i} className="flex items-start gap-3">

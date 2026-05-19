@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { asset } from '../lib/asset'
 
-const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/919930924189?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
 const banners = [
   asset('/banner-1.webp'),

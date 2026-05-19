@@ -3,10 +3,11 @@ import { motion } from 'framer-motion'
 import toast, { Toaster } from 'react-hot-toast'
 import { FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaLock, FaSpinner, FaExclamationTriangle } from 'react-icons/fa'
 
-const WA_LINK = 'https://wa.me/918238720244?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
+const WA_LINK = 'https://wa.me/919930924189?text=I%20am%20interested%20in%20Monsoon%20Sheds%20on%20Hire'
 
-// PHP mailer on same origin. Edit recipients in public/sendmail.php
-const MAIL_ENDPOINT = `${import.meta.env.BASE_URL}sendmail.php`
+// Google Apps Script Web App endpoint — handles email delivery server-side.
+// To redeploy or change recipients, see apps-script/DEPLOY.md
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxbGSezLyx8QLdXJaiJOTGiN4Rd4DeRThtKPWSoHPnZJLd8Z5caxKVG11PdxsQ1f-RM/exec'
 
 export default function LeadForm() {
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
@@ -24,10 +25,13 @@ export default function LeadForm() {
         message: data.message,
       }
 
-      const res = await fetch(MAIL_ENDPOINT, {
+      // text/plain avoids the CORS preflight that breaks Apps Script.
+      // Apps Script reads e.postData.contents and parses the JSON.
+      const res = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
+        redirect: 'follow',
       })
       const j = await res.json().catch(() => ({}))
       if (!res.ok || j.success !== true) throw new Error()
